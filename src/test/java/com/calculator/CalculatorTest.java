@@ -29,4 +29,29 @@ public class CalculatorTest {
         long result = calculator.subtract(a, b);
         Assert.assertEquals(expectedResult, result);;
     }
+
+    @Test
+    public void testMultiply() {
+        int a = 2;
+        int b = 8;
+        long expectedResult = 16;
+        long result = calculator.multiply(a, b);
+        Assert.assertEquals(expectedResult, result);;
+    }
+
+    @Test
+    public void testDivide() {
+        int a = 3;
+        int b = 2;
+        double expectedResult = 1.5;
+        double result = calculator.divide(a, b);
+        Assert.assertEquals(expectedResult, result,0.00005);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testDivideByZero() {
+        int a = 1;
+        int b = 0;
+        calculator.divide(a, b);
+    }
 }

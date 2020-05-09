@@ -47,8 +47,9 @@ pipeline {
         }
       }
     }
-    stage('Remove Unused untagged docker images') {
+    stage('Remove unused/untagged docker images') {
       steps{
+        sh "docker rmi $registry:$BUILD_NUMBER"
         sh "docker image prune"
       }
     }
